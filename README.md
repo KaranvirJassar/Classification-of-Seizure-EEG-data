@@ -137,5 +137,3 @@ Karanvir Singh Jassar
 Machine Learning & Signal Processing Enthusiast
 
 ---
-
-I’ll adjust formatting accordingly.
