@@ -4,11 +4,11 @@ Exploring time frequency convolution neural network for classification of seizur
 
 🧠 EEG Seizure Detection using CNN and CWT
 
-This project implements an automated seizure detection system using EEG (Electroencephalogram) signals. A 1D Convolutional Neural Network (CNN) is trained to classify EEG segments into seizure and non-seizure classes. Additionally, Continuous Wavelet Transform (CWT) is used for time-frequency analysis and scalogram visualization.
+This project implements an automated seizure detection system using EEG (Electroencephalogram) signals. A 1D Convolutional Neural Network (CNN) is trained to classify EEG segments into seizure and non-seizure classes. Continuous Wavelet Transform (CWT) is also applied for time-frequency analysis and scalogram visualization.
 
 📂 Dataset
 
-Dataset used: Epileptic Seizure Recognition Dataset
+Dataset Used: Epileptic Seizure Recognition Dataset
 
 178 EEG features per sample
 
@@ -20,7 +20,7 @@ Balanced distribution
 
 Total samples: ~6300
 
-Shape: (6326, 180)
+Dataset shape: (6326, 180)
 
 Class Meaning
 Label	Description
@@ -30,7 +30,7 @@ Label	Description
 4	Eyes closed
 5	Eyes open
 
-For seizure detection, labels were converted to:
+For seizure detection, the labels were converted to binary:
 
 1 → Seizure
 
@@ -51,15 +51,15 @@ Split into Train / Validation / Test sets
 
 2️⃣ Model Architecture (1D CNN)
 
-Architecture:
+The CNN architecture consists of:
 
-Conv1D (32 filters, kernel size=3, ReLU)
+Conv1D (32 filters, kernel size = 3, ReLU)
 
 MaxPooling1D
 
-Conv1D (64 filters)
+Conv1D (64 filters, ReLU)
 
-Conv1D (32 filters)
+Conv1D (32 filters, ReLU)
 
 MaxPooling1D
 
@@ -75,15 +75,9 @@ Dropout (0.5)
 
 Output Layer (Sigmoid)
 
-Loss Function:
-
-Binary Crossentropy
-
-Optimizer:
-
-Adam
-
-Early stopping was used to prevent overfitting.
+Loss Function: Binary Crossentropy
+Optimizer: Adam
+Regularization: Dropout + Early Stopping
 
 📊 Results
 
@@ -93,19 +87,19 @@ Validation Accuracy: ~97–98%
 
 Stable convergence
 
-No severe overfitting observed
+No major overfitting observed
 
 📈 Time-Frequency Analysis (CWT)
 
 Continuous Wavelet Transform (CWT) was applied to generate scalograms for EEG signal visualization.
 
-This allows:
+This provides:
 
 Time-frequency representation
 
 Better understanding of seizure patterns
 
-Visual comparison between seizure and normal signals
+Visual comparison between seizure and normal EEG signals
 
 🛠 Technologies Used
 
@@ -127,13 +121,13 @@ PyWavelets
 
 🚀 How to Run
 
-Clone the repository
+Clone the repository:
 
 git clone https://github.com/KaranvirJassar/Classification-of-Seizure-EEG-data.git
 
 Open the notebook in Google Colab
 
-Upload:
+Upload the dataset file:
 
 Epileptic Seizure Recognition.csv
 
@@ -141,15 +135,13 @@ Run all cells
 
 🎯 Future Improvements
 
-Use raw Bonn dataset instead of segmented CSV
+Train 2D CNN on CWT scalograms
 
-Implement 2D CNN on CWT scalograms
+Implement CNN + LSTM hybrid model
 
-Add LSTM for temporal dependency
+Perform K-fold cross-validation
 
-Perform cross-validation
-
-Deploy as web application
+Deploy as a web application
 
 👤 Author
 
